@@ -24,7 +24,7 @@ pipeline {
         stage('test'){
             steps{
                 script{
-                    def scannerHome = tool 'sonar';
+                    def mvn = tool 'maven';
                     withSonarQubeEnv(credentialsId: 'sonar-pass') {
                         sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java-app -Dsonar.projectName='java-app'"
 

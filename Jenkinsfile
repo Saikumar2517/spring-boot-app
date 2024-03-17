@@ -26,7 +26,7 @@ pipeline {
                 script{
                     def scannerHome = tool 'sonar';
                     withSonarQubeEnv(credentialsId: 'sonar-pass') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=reactapp" 
+                        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java-app -Dsonar.projectName='java-app'"
 
                     }
                 }
